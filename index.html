@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Предлоги викторина</title>
-    <style>
-        .question { margin-bottom: 20px; }
-        .feedback { font-weight: bold; }
-    </style>
-</head>
-<body>
-    <h1>Тест на предлоги</h1>
-    <div id="quiz"></div>
-    <script>
-	    const questions = [
+const questions = [
     { question: "Ich komme ___ einer Stunde. (Я приду через час.)", options: ["in", "seit", "um"], correct: "in", explanation: "Используется 'in', когда говорим о будущем времени (через час)." },
     { question: "Wir haben Deutschkurs ___ Montag. (У нас курс немецкого в понедельник.)", options: ["am", "im", "um"], correct: "am", explanation: "Дни недели всегда с 'am'." },
     { question: "___ Sommer fahren wir ans Meer. (Летом мы едем к морю.)", options: ["im", "am", "in"], correct: "im", explanation: "Времена года идут с 'im'." },
@@ -69,6 +54,77 @@ document.addEventListener("DOMContentLoaded", function () {
     quizContainer.appendChild(resultButton);
 });
 
-    </script>
-</body>
-</html>
+function checkAnswer(button, correctAnswer, explanation) {
+    const parent = button.parentElement;
+    const feedback = parent.querySelector(".feedback");
+    
+    if (button.textContent === correctAnswer) {
+        feedback.textContent = "✅ Верно!";
+        feedback.style.color = "green";
+        correctAnswers++;
+    } else {
+        feedback.textContent = `❌ Неверно. ${explanation}`;
+        feedback.style.color = "red";
+    }
+}
+
+function showResult() {
+    alert(`Вы правильно ответили на ${correctAnswers} из ${questions.length} вопросов!`);
+}
+
+// CSS стилизация
+const style = document.createElement("style");
+style.innerHTML = `
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    #quiz {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .option-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .option-button:hover {
+        background: #0056b3;
+    }
+    .feedback {
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    .result-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 15px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .result-button:hover {
+        background: #218838;
+    }
+`;
+document.head.appendChild(style);
