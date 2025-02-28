@@ -1,4 +1,19 @@
-const questions = [
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предлоги викторина</title>
+    <style>
+        .question { margin-bottom: 20px; }
+        .feedback { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Тест на предлоги</h1>
+    <div id="quiz"></div>
+    <script>
+        const questions = [
     { question: "Ich komme ___ einer Stunde. (Я приду через час.)", options: ["in", "seit", "um"], correct: "in", explanation: "Используется 'in', когда говорим о будущем времени (через час)." },
     { question: "Wir haben Deutschkurs ___ Montag. (У нас курс немецкого в понедельник.)", options: ["am", "im", "um"], correct: "am", explanation: "Дни недели всегда с 'am'." },
     { question: "___ Sommer fahren wir ans Meer. (Летом мы едем к морю.)", options: ["im", "am", "in"], correct: "im", explanation: "Времена года идут с 'im'." },
@@ -128,3 +143,8 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
+
