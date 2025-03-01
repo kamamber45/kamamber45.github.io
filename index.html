@@ -3,112 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz: Deutsche Präpositionen</title>
+    <title>Предлоги викторина</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 20px;
-        }
-        .quiz-container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .options button, input {
-            display: block;
-            width: 100%;
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .options button:hover {
-            background-color: #ddd;
-        }
-        .explanation {
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
-        }
-        .hidden {
-            display: none;
-        }
-        #result {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+        .question { margin-bottom: 20px; }
+        .feedback { font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Quiz: Deutsche Präpositionen</h1>
-        <div id="quiz"></div>
-        <button onclick="showResult()">Ergebnis anzeigen</button>
-        <div id="result"></div>
-    </div>
-    
+    <h1>Тест на предлоги</h1>
+    <div id="quiz"></div>
     <script>
         const questions = [
-            { question: "Ich komme ___ einer Stunde. (Я приду через час.)", options: ["in", "seit", "um"], correct: "in", explanation: "Используется 'in', когда говорим о будущем времени (через час)." },
-            { question: "Wir haben Deutschkurs ___ Montag. (У нас курс немецкого в понедельник.)", options: ["am", "im", "um"], correct: "am", explanation: "Дни недели всегда с 'am'." },
-            { question: "___ Sommer fahren wir ans Meer. (Летом мы едем к морю.)", options: ["im", "am", "in"], correct: "im", explanation: "Времена года идут с 'im'." },
-            { question: "Er arbeitet hier schon ___ zwei Jahren. (Он работает здесь уже два года.)", options: ["seit", "für", "in"], correct: "seit", explanation: "'seit' используется для действий, начавшихся в прошлом и продолжающихся." },
-            { question: "Der Bus fährt ___ 8:15 Uhr ab. (Автобус отправляется в 8:15.)", options: ["um", "am", "in"], correct: "um", explanation: "'Um' используется для обозначения точного времени." },
-            { question: "Ich warte ___ den Bus. (Я жду автобус.)", input: true, correct: "auf", explanation: "'Auf' используется с глаголом 'warten'." },
-            { question: "Er fährt ___ die Stadt. (Он едет в город.)", input: true, correct: "in", explanation: "'In' + Akkusativ указывает на направление движения внутрь." }
-        ];
+    { question: "Ich komme ___ einer Stunde. (Я приду через час.)", options: ["in", "seit", "um"], correct: "in", explanation: "Используется 'in', когда говорим о будущем времени (через час)." },
+    { question: "Wir haben Deutschkurs ___ Montag. (У нас курс немецкого в понедельник.)", options: ["am", "im", "um"], correct: "am", explanation: "Дни недели всегда с 'am'." },
+    { question: "___ Sommer fahren wir ans Meer. (Летом мы едем к морю.)", options: ["im", "am", "in"], correct: "im", explanation: "Времена года идут с 'im'." },
+    { question: "Er arbeitet hier schon ___ zwei Jahren. (Он работает здесь уже два года.)", options: ["seit", "für", "in"], correct: "seit", explanation: "'seit' используется для действий, начавшихся в прошлом и продолжающихся." },
+    { question: "Der Bus fährt ___ 8:15 Uhr ab. (Автобус отправляется в 8:15.)", options: ["um", "am", "in"], correct: "um", explanation: "'Um' используется для обозначения точного времени." },
+    
+    { question: "Die Tasche liegt ___ dem Stuhl. (Сумка лежит на стуле.)", options: ["auf", "unter", "neben"], correct: "auf", explanation: "'Auf' используется, когда что-то находится на поверхности." },
+    { question: "Ich stelle die Tasse ___ den Tisch. (Я ставлю чашку на стол.)", options: ["auf", "an", "unter"], correct: "auf", explanation: "'Auf' + Akkusativ используется при смене положения." },
+    { question: "Wir gehen ___ die Straße. (Мы переходим через улицу.)", options: ["über", "durch", "an"], correct: "über", explanation: "'Über' используется при переходе через что-то." },
+    { question: "Der Supermarkt ist ___ der Schule. (Супермаркет находится рядом со школой.)", options: ["neben", "über", "unter"], correct: "neben", explanation: "'Neben' используется, если объект рядом с другим." },
+    { question: "Ich fahre ___ das Büro. (Я еду в офис.)", options: ["in", "auf", "zu"], correct: "in", explanation: "'In' + Akkusativ указывает на перемещение внутрь." },
+    
+    { question: "Das Buch liegt ___ dem Tisch. (Книга лежит под столом.)", options: ["unter", "über", "neben"], correct: "unter", explanation: "'Unter' используется, когда что-то находится под другим объектом." },
+    { question: "Er sitzt ___ der Tür. (Он сидит перед дверью.)", options: ["vor", "hinter", "zwischen"], correct: "vor", explanation: "'Vor' используется для обозначения перед чем-то." },
+    { question: "Das Bild hängt ___ der Wand. (Картина висит на стене.)", options: ["an", "auf", "hinter"], correct: "an", explanation: "'An' используется, когда что-то находится вплотную к вертикальной поверхности." },
+    { question: "Wir treffen uns ___ dem Kino. (Мы встречаемся перед кинотеатром.)", options: ["vor", "hinter", "neben"], correct: "vor", explanation: "'Vor' используется при указании места перед чем-то." },
+    { question: "Die Katze springt ___ das Sofa. (Кошка прыгает на диван.)", options: ["auf", "über", "unter"], correct: "auf", explanation: "'Auf' + Akkusativ используется, когда указывается движение на поверхность." },
+    { question: "Das Auto steht ___ dem Haus. (Машина стоит перед домом.)", options: ["vor", "neben", "hinter"], correct: "vor", explanation: "'Vor' используется для обозначения перед чем-то." },
+    { question: "Die Kinder spielen ___ dem Park. (Дети играют в парке.)", options: ["in", "auf", "unter"], correct: "in", explanation: "'In' используется для обозначения нахождения внутри чего-то." },
+    { question: "Ich gehe ___ die Brücke. (Я иду через мост.)", options: ["über", "unter", "an"], correct: "über", explanation: "'Über' используется для обозначения движения через что-то." },
+    { question: "Die Lampe hängt ___ dem Tisch. (Лампа висит над столом.)", options: ["über", "unter", "neben"], correct: "über", explanation: "'Über' используется для обозначения расположения над чем-то." },
+    { question: "Er geht ___ die Tür. (Он проходит через дверь.)", options: ["durch", "über", "unter"], correct: "durch", explanation: "'Durch' используется, когда говорим о прохождении сквозь что-то." }
+];
 
-        let correctAnswers = 0;
-        const quizContainer = document.getElementById("quiz");
+let correctAnswers = 0;
 
-        function loadQuiz() {
-            questions.forEach((q, index) => {
-                const div = document.createElement("div");
-                div.classList.add("question-block");
-                div.innerHTML = `<p class='question'>${index + 1}. ${q.question}</p>`;
-                
-                if (q.input) {
-                    div.innerHTML += `<input type='text' id='input-${index}' placeholder='Введите предлог'>`;
-                } else {
-                    q.options.forEach(option => {
-                        div.innerHTML += `<button onclick='checkAnswer(${index}, "${option}")'>${option}</button>`;
-                    });
-                }
-                
-                div.innerHTML += `<p class='explanation hidden' id='exp-${index}'></p>`;
-                quizContainer.appendChild(div);
-            });
-        }
+document.addEventListener("DOMContentLoaded", function () {
+    const quizContainer = document.getElementById("quiz");
+    const resultButton = document.createElement("button");
+    resultButton.textContent = "Узнать результат";
+    resultButton.classList.add("result-button");
+    resultButton.onclick = showResult;
+    
+    questions.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("question");
+        questionDiv.innerHTML = `<p><strong>${index + 1}. ${q.question}</strong></p>`;
+        
+        q.options.forEach(option => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.classList.add("option-button");
+            button.onclick = () => checkAnswer(button, q.correct, q.explanation);
+            questionDiv.appendChild(button);
+        });
+        
+        const feedback = document.createElement("p");
+        feedback.classList.add("feedback");
+        questionDiv.appendChild(feedback);
+        quizContainer.appendChild(questionDiv);
+    });
+    
+    quizContainer.appendChild(resultButton);
+});
 
-        function checkAnswer(index, selected) {
-            const question = questions[index];
-            const explanation = document.getElementById(`exp-${index}`);
-            
-            if (selected === question.correct) {
-                correctAnswers++;
-                explanation.textContent = "✅ Правильно!";
-            } else {
-                explanation.textContent = `❌ Неверно! ${question.explanation}`;
-            }
-            explanation.classList.remove("hidden");
-        }
+function checkAnswer(button, correctAnswer, explanation) {
+    const parent = button.parentElement;
+    const feedback = parent.querySelector(".feedback");
+    
+    if (button.textContent === correctAnswer) {
+        feedback.textContent = "✅ Верно!";
+        feedback.style.color = "green";
+        correctAnswers++;
+    } else {
+        feedback.textContent = `❌ Неверно. ${explanation}`;
+        feedback.style.color = "red";
+    }
+}
 
-        function showResult() {
-            document.getElementById("result").textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
-        }
+function showResult() {
+    alert(`Вы правильно ответили на ${correctAnswers} из ${questions.length} вопросов!`);
+}
 
-        loadQuiz();
+// CSS стилизация
+const style = document.createElement("style");
+style.innerHTML = `
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    #quiz {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .option-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .option-button:hover {
+        background: #0056b3;
+    }
+    .feedback {
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    .result-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 15px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .result-button:hover {
+        background: #218838;
+    }
+`;
+document.head.appendChild(style);
     </script>
 </body>
 </html>
+
