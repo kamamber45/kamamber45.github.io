@@ -1,169 +1,160 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Предлоги викторина</title>
-    <style>
-        .question { margin-bottom: 20px; }
-        .feedback { font-weight: bold; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Шабаш міфів — Магнітна сцена</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+    header {
+      padding: 40px 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+      color: #ff5ebc;
+    }
+    h2 {
+      color: #ff94e0;
+      margin-top: 40px;
+    }
+    h3 {
+      color: #ffd6f5;
+    }
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .character {
+      margin-bottom: 30px;
+    }
+    blockquote {
+      font-style: italic;
+      color: #aaaaaa;
+      border-left: 4px solid #ff5ebc;
+      padding-left: 15px;
+    }
+    .cta {
+      text-align: center;
+      margin: 50px 0;
+    }
+    .cta a {
+      background-color: #ff5ebc;
+      color: #0a0a0a;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta a:hover {
+      background-color: #ff8cd6;
+    }
+    .illustration {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .illustration img {
+      max-width: 100%;
+      height: auto;
+      border: 3px solid #ff5ebc;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Тест на предлоги</h1>
-    <div id="quiz"></div>
-    <script>
-        const questions = [
-    { question: "Ich komme ___ einer Stunde. (Я приду через час.)", options: ["in", "seit", "um"], correct: "in", explanation: "Используется 'in', когда говорим о будущем времени (через час)." },
-    { question: "Wir haben Deutschkurs ___ Montag. (У нас курс немецкого в понедельник.)", options: ["am", "im", "um"], correct: "am", explanation: "Дни недели всегда с 'am'." },
-    { question: "___ Sommer fahren wir ans Meer. (Летом мы едем к морю.)", options: ["im", "am", "in"], correct: "im", explanation: "Времена года идут с 'im'." },
-    { question: "Er arbeitet hier schon ___ zwei Jahren. (Он работает здесь уже два года.)", options: ["seit", "für", "in"], correct: "seit", explanation: "'seit' используется для действий, начавшихся в прошлом и продолжающихся." },
-    { question: "Der Bus fährt ___ 8:15 Uhr ab. (Автобус отправляется в 8:15.)", options: ["um", "am", "in"], correct: "um", explanation: "'Um' используется для обозначения точного времени." },
-    
-    { question: "Die Tasche liegt ___ dem Stuhl. (Сумка лежит на стуле.)", options: ["auf", "unter", "neben"], correct: "auf", explanation: "'Auf' используется, когда что-то находится на поверхности." },
-    { question: "Ich stelle die Tasse ___ den Tisch. (Я ставлю чашку на стол.)", options: ["auf", "an", "unter"], correct: "auf", explanation: "'Auf' + Akkusativ используется при смене положения." },
-    { question: "Wir gehen ___ die Straße. (Мы переходим через улицу.)", options: ["über", "durch", "an"], correct: "über", explanation: "'Über' используется при переходе через что-то." },
-    { question: "Der Supermarkt ist ___ der Schule. (Супермаркет находится рядом со школой.)", options: ["neben", "über", "unter"], correct: "neben", explanation: "'Neben' используется, если объект рядом с другим." },
-    { question: "Ich fahre ___ das Büro. (Я еду в офис.)", options: ["in", "auf", "zu"], correct: "in", explanation: "'In' + Akkusativ указывает на перемещение внутрь." },
-    
-    { question: "Das Buch liegt ___ dem Tisch. (Книга лежит под столом.)", options: ["unter", "über", "neben"], correct: "unter", explanation: "'Unter' используется, когда что-то находится под другим объектом." },
-    { question: "Er sitzt ___ der Tür. (Он сидит перед дверью.)", options: ["vor", "hinter", "zwischen"], correct: "vor", explanation: "'Vor' используется для обозначения перед чем-то." },
-    { question: "Das Bild hängt ___ der Wand. (Картина висит на стене.)", options: ["an", "auf", "hinter"], correct: "an", explanation: "'An' используется, когда что-то находится вплотную к вертикальной поверхности." },
-    { question: "Wir treffen uns ___ dem Kino. (Мы встречаемся перед кинотеатром.)", options: ["vor", "hinter", "neben"], correct: "vor", explanation: "'Vor' используется при указании места перед чем-то." },
-    { question: "Die Katze springt ___ das Sofa. (Кошка прыгает на диван.)", options: ["auf", "über", "unter"], correct: "auf", explanation: "'Auf' + Akkusativ используется, когда указывается движение на поверхность." },
-    { question: "Das Auto steht ___ dem Haus. (Машина стоит перед домом.)", options: ["vor", "neben", "hinter"], correct: "vor", explanation: "'Vor' используется для обозначения перед чем-то." },
-    { question: "Die Kinder spielen ___ dem Park. (Дети играют в парке.)", options: ["in", "auf", "unter"], correct: "in", explanation: "'In' используется для обозначения нахождения внутри чего-то." },
-    { question: "Ich gehe ___ die Brücke. (Я иду через мост.)", options: ["über", "unter", "an"], correct: "über", explanation: "'Über' используется для обозначения движения через что-то." },
-    { question: "Die Lampe hängt ___ dem Tisch. (Лампа висит над столом.)", options: ["über", "unter", "neben"], correct: "über", explanation: "'Über' используется для обозначения расположения над чем-то." },
-    { question: "Er geht ___ die Tür. (Он проходит через дверь.)", options: ["durch", "über", "unter"], correct: "durch", explanation: "'Durch' используется, когда говорим о прохождении сквозь что-то." },
+  <header>
+    <h1>Шабаш міфів</h1>
+    <p><em>Магнітний світ, де оживає нічна легенда</em></p>
+  </header>
+  <section>
+    <div class="illustration">
+      <img src="images/1.png" alt="Шабаш міфічних істот" />
+    </div>
 
-    { question: "Das Buch liegt ___ dem Tisch. (Книга лежит на столе.)", options: ["auf", "in", "an"], correct: "auf", explanation: "'Auf' используется, когда что-то находится на поверхности." },
-    { question: "Wir treffen uns ___ der Haltestelle. (Мы встречаемся на остановке.)", options: ["an", "auf", "bei"], correct: "an", explanation: "'An' используется для обозначения конкретного места." },
-    { question: "Er sitzt ___ dem Stuhl. (Он сидит на стуле.)", options: ["auf", "in", "unter"], correct: "auf", explanation: "'Auf' означает 'на поверхности'." },
-    { question: "Die Lampe hängt ___ der Decke. (Лампа висит на потолке.)", options: ["an", "auf", "über"], correct: "an", explanation: "'An' используется для объектов, прикрепленных к поверхности." },
-    { question: "Der Schlüssel steckt ___ der Tasche. (Ключ находится в сумке.)", options: ["in", "auf", "an"], correct: "in", explanation: "'In' используется для обозначения нахождения внутри чего-то." },
-    { question: "Sie gehen ___ die Brücke. (Они идут через мост.)", options: ["über", "unter", "durch"], correct: "über", explanation: "'Über' указывает на движение поверх чего-то." },
-    { question: "Wir fahren ___ den Tunnel. (Мы едем через туннель.)", options: ["durch", "über", "unter"], correct: "durch", explanation: "'Durch' указывает на движение через что-то." },
-    { question: "Der Park liegt ___ der Kirche. (Парк находится рядом с церковью.)", options: ["neben", "zwischen", "vor"], correct: "neben", explanation: "'Neben' означает 'рядом'." },
-    { question: "Das Auto steht ___ dem Haus. (Машина стоит перед домом.)", options: ["vor", "hinter", "neben"], correct: "vor", explanation: "'Vor' указывает на расположение перед чем-то." },
-    { question: "Der Supermarkt ist ___ der Bank und der Apotheke. (Супермаркет находится между банком и аптекой.)", options: ["zwischen", "neben", "vor"], correct: "zwischen", explanation: "'Zwischen' используется, когда что-то находится между двумя объектами." },
-    { question: "Wir gehen ___ das Museum. (Мы идем в музей.)", options: ["in", "zu", "auf"], correct: "in", explanation: "'In' используется с Akkusativ для движения внутрь помещения." },
-    { question: "Ich fahre ___ meiner Oma. (Я еду к бабушке.)", options: ["zu", "nach", "bei"], correct: "zu", explanation: "'Zu' используется при указании направления к человеку." },
-    { question: "Berlin liegt ___ Deutschland. (Берлин находится в Германии.)", options: ["in", "auf", "an"], correct: "in", explanation: "'In' используется для городов и стран." },
-    { question: "Er wohnt ___ seinen Eltern. (Он живет у своих родителей.)", options: ["bei", "mit", "in"], correct: "bei", explanation: "'Bei' используется при упоминании проживания у кого-то." },
-    { question: "Ich bleibe heute ___ Hause. (Я остаюсь дома.)", options: ["zu", "nach", "bei"], correct: "zu", explanation: "Для обозначения нахождения дома используется 'zu Hause'." },
-    { question: "Wir fahren ___ Spanien. (Мы едем в Испанию.)", options: ["nach", "in", "auf"], correct: "nach", explanation: "'Nach' используется для стран и городов без артикля." },
-    { question: "Sie läuft ___ den Fluss entlang. (Она бежит вдоль реки.)", input: true, correct: "an", explanation: "'An' + Dativ используется при движении вдоль чего-то." },
-    { question: "Er ist stolz ___ seinen Erfolg. (Он гордится своим успехом.)", input: true, correct: "auf", explanation: "'Auf' используется с 'stolz sein'." }
-            
-];
+    <h2>Неонова ніч. 12 істот. Одна сцена.</h2>
+    <p>
+      У глибині темного лісу, серед рожевого туману та сяйва забутих символів,
+      ми зібрали всіх тих, хто ховався у народних переказах, дитячих страхах і наших снах. 
+      Це не просто ілюстрація — це <strong>шабаш</strong>, який відбувається лише раз на сто років.
+    </p>
 
-let correctAnswers = 0;
+    <h2>Знайомтесь: хто вони</h2>
+    <div class="character">
+      <h3>Домовик-Чаклун</h3>
+      <p>Охоронець дому, алхімік із маркером у руці. Тримає баланс між «булинням» і хаосом.</p>
+    </div>
+    <div class="character">
+      <h3>Мавка-Квіткова</h3>
+      <p>Прозора, легка, з неоновим волоссям — танцює у ритмі лісу. Її рухи — мова світла.</p>
+    </div>
+    <div class="character">
+      <h3>Русалка-Кам’яна</h3>
+      <p>Тиха й потужна. В її очах — дощі, у волоссі — легенди річок.</p>
+    </div>
+    <div class="character">
+      <h3>Бісик-Тінь</h3>
+      <p>Усмішка і роги. Грає з твоїм страхом, але не злим наміром.</p>
+    </div>
+    <div class="character">
+      <h3>Вурдалак-Картограф</h3>
+      <p>Носій нічних карт. Шукає тріщини між світами. Його компас — інтуїція.</p>
+    </div>
+    <div class="character">
+      <h3>Змій-Триголовий</h3>
+      <p>Один сміється, другий мовчить, третій бачить усе. Символ сили і загадки.</p>
+    </div>
+    <div class="character">
+      <h3>Нічниця-Совиця</h3>
+      <p>Птах-оракул. Летить над шабашем, лишаючи слід із хрестів і спіралей.</p>
+    </div>
+    <div class="character">
+      <h3>Скелет-Хранитель</h3>
+      <p>Пам’ятає всіх. І тебе, й твоїх пращурів. Пише літопис у Книгу Тіней.</p>
+    </div>
+    <div class="character">
+      <h3>Грибник-Примара</h3>
+      <p>Складається з туману і спор. Його мова — незрозумілий шепіт лісу.</p>
+    </div>
+    <div class="character">
+      <h3>Чугайстер-Вартовий</h3>
+      <p>Центр кола. Роги, блискавки, тиша. Його поява — знак початку.</p>
+    </div>
 
-document.addEventListener("DOMContentLoaded", function () {
-    const quizContainer = document.getElementById("quiz");
-    const resultButton = document.createElement("button");
-    resultButton.textContent = "Узнать результат";
-    resultButton.classList.add("result-button");
-    resultButton.onclick = showResult;
-    
-    questions.forEach((q, index) => {
-        const questionDiv = document.createElement("div");
-        questionDiv.classList.add("question");
-        questionDiv.innerHTML = `<p><strong>${index + 1}. ${q.question}</strong></p>`;
-        
-        q.options.forEach(option => {
-            const button = document.createElement("button");
-            button.textContent = option;
-            button.classList.add("option-button");
-            button.onclick = () => checkAnswer(button, q.correct, q.explanation);
-            questionDiv.appendChild(button);
-        });
-        
-        const feedback = document.createElement("p");
-        feedback.classList.add("feedback");
-        questionDiv.appendChild(feedback);
-        quizContainer.appendChild(questionDiv);
-    });
-    
-    quizContainer.appendChild(resultButton);
-});
+    <h2>Повна історія</h2>
+    <p>
+      У глибині Карпат, де не ступає людська нога, росте Ліс Тіней. Там, під трьома місяцями, раз на сто років збираються всі істоти, про яких давно забули.
+    </p>
+    <p>
+      Домовик приходить першим — щоб перевірити порядок. Він зітхає, бо знову доведеться сварити бісиків.
+      Мавка танцює, закликаючи світанок, хоча він сьогодні не настане. Русалка приносить дощову воду — подарунок для вогню.
+      Вурдалак розгортає карту: він вирахував, що портал до людського світу відкритий лише на 13 хвилин.
+    </p>
+    <p>
+      Змій розповзається по землі, пильно дивлячись на кожного. Один його язик сміється, інший мовчить. А третій шепоче таємниці прямо в землю.
+      Скелет стоїть непорушно — він пам’ятає кожен шабаш. Останній був у 1924-му. Тоді не з’явився Перелесник. Сьогодні він теж запізнюється.
+    </p>
+    <p>
+      Чугайстер, стоячи у вогняному колі, зриває останній символ з неба: знак початку. Світ хитнувся, і всі присутні почули голос у голові:
+    </p>
+    <blockquote>
+      “Нехай почнеться ніч без часу. Що забуто — воскресне. Що зникло — стане знаком.”
+    </blockquote>
+    <p>
+      І шабаш почався.
+    </p>
 
-function checkAnswer(button, correctAnswer, explanation) {
-    const parent = button.parentElement;
-    const feedback = parent.querySelector(".feedback");
-    
-    if (button.textContent === correctAnswer) {
-        feedback.textContent = "✅ Верно!";
-        feedback.style.color = "green";
-        correctAnswers++;
-    } else {
-        feedback.textContent = `❌ Неверно. ${explanation}`;
-        feedback.style.color = "red";
-    }
-}
-
-function showResult() {
-    alert(`Вы правильно ответили на ${correctAnswers} из ${questions.length} вопросов!`);
-}
-
-// CSS стилизация
-const style = document.createElement("style");
-style.innerHTML = `
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        padding: 20px;
-    }
-    #quiz {
-        max-width: 600px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .question {
-        margin-bottom: 15px;
-        padding: 10px;
-        background: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .option-button {
-        display: block;
-        width: 100%;
-        margin: 5px 0;
-        padding: 10px;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .option-button:hover {
-        background: #0056b3;
-    }
-    .feedback {
-        font-weight: bold;
-        margin-top: 5px;
-    }
-    .result-button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 15px;
-        background: #28a745;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .result-button:hover {
-        background: #218838;
-    }
-`;
-document.head.appendChild(style);
-    </script>
+    <div class="cta">
+      <p><strong>Хочеш таку ніч у себе на холодильнику?</strong></p>
+      <a href="#">Передзамовити</a>
+    </div>
+  </section>
 </body>
 </html>
-
