@@ -29,10 +29,6 @@
       color: #ffd6f5;
       transition: all 0.3s ease;
     }
-    .character:hover h3 {
-      color: #ff5ebc;
-      text-shadow: 0 0 8px #ff5ebc, 0 0 15px #ff5ebc;
-    }
     section {
       max-width: 900px;
       margin: 0 auto;
@@ -40,12 +36,35 @@
     .character {
       margin-bottom: 30px;
       padding: 10px;
+      position: relative;
       transition: all 0.3s ease;
     }
     .character:hover {
       background-color: rgba(255, 94, 188, 0.05);
       box-shadow: 0 0 10px #ff5ebc66, 0 0 20px #ff5ebc33;
       border-radius: 8px;
+    }
+    .character:hover h3 {
+      color: #ff5ebc;
+      text-shadow: 0 0 8px #ff5ebc, 0 0 15px #ff5ebc;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 250px;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      border: 1px solid #ff5ebc;
+      border-radius: 8px;
+      padding: 15px;
+      z-index: 10;
+      margin-left: 15px;
+      box-shadow: 0 0 15px #ff5ebc88;
+    }
+    .character:hover .tooltip {
+      display: block;
     }
     blockquote {
       font-style: italic;
@@ -88,7 +107,7 @@
   </header>
   <section>
     <div class="illustration">
-      <img src="images/1.png" alt="Шабаш міфічних істот" />
+      <img src="/mnt/data/A_graffiti-style,_neon-colored_artwork_on_canvas_d.png" alt="Шабаш міфічних істот" />
     </div>
 
     <h2>Неонова ніч. 12 істот. Одна сцена.</h2>
@@ -102,42 +121,82 @@
     <div class="character">
       <h3>Домовик-Чаклун</h3>
       <p>Охоронець дому, алхімік із маркером у руці. Тримає баланс між «булинням» і хаосом.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> контроль над енергетикою дому.<br>
+        <strong>У міфології:</strong> добрий дух-хазяїн, що допомагає, якщо його поважають.
+      </div>
     </div>
     <div class="character">
       <h3>Мавка-Квіткова</h3>
       <p>Прозора, легка, з неоновим волоссям — танцює у ритмі лісу. Її рухи — мова світла.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> зачарування, створення світлових порталів.<br>
+        <strong>У міфології:</strong> духи лісу, звабливі, іноді небезпечні, але пов’язані з природою.
+      </div>
     </div>
     <div class="character">
       <h3>Русалка-Кам’яна</h3>
       <p>Тиха й потужна. В її очах — дощі, у волоссі — легенди річок.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> виклик дощу, гіпноз водою.<br>
+        <strong>У міфології:</strong> водяні духи, особливо активні на Зелені свята.
+      </div>
     </div>
     <div class="character">
       <h3>Бісик-Тінь</h3>
       <p>Усмішка і роги. Грає з твоїм страхом, але не злим наміром.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> створення ілюзій і хибних голосів.<br>
+        <strong>У міфології:</strong> нечиста сила, що провокує, але не вбиває.
+      </div>
     </div>
     <div class="character">
       <h3>Вурдалак-Картограф</h3>
       <p>Носій нічних карт. Шукає тріщини між світами. Його компас — інтуїція.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> навігація між світами, бачення крізь простір.<br>
+        <strong>У міфології:</strong> мрець, що іноді з’являється у пошуках справедливості.
+      </div>
     </div>
     <div class="character">
       <h3>Змій-Триголовий</h3>
       <p>Один сміється, другий мовчить, третій бачить усе. Символ сили і загадки.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> контроль стихій, сила роздвоєної природи.<br>
+        <strong>У міфології:</strong> часто зображувався ворогом героїв, але також — випробуванням.
+      </div>
     </div>
     <div class="character">
       <h3>Нічниця-Совиця</h3>
       <p>Птах-оракул. Летить над шабашем, лишаючи слід із хрестів і спіралей.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> пророкування, бачення майбутнього.<br>
+        <strong>У міфології:</strong> нічна птаха, часто — символ передвісника.
+      </div>
     </div>
     <div class="character">
       <h3>Скелет-Хранитель</h3>
       <p>Пам’ятає всіх. І тебе, й твоїх пращурів. Пише літопис у Книгу Тіней.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> зберігання памʼяті й істини.<br>
+        <strong>У міфології:</strong> не персонаж, а символ смерті й циклу життя.
+      </div>
     </div>
     <div class="character">
       <h3>Грибник-Примара</h3>
       <p>Складається з туману і спор. Його мова — незрозумілий шепіт лісу.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> зв’язок з підземним світом, трансформація простору.<br>
+        <strong>У міфології:</strong> привиди грибників — улюбленці лісових легенд.
+      </div>
     </div>
     <div class="character">
       <h3>Чугайстер-Вартовий</h3>
       <p>Центр кола. Роги, блискавки, тиша. Його поява — знак початку.</p>
+      <div class="tooltip">
+        <strong>Сила:</strong> охорона лісу, баланс між добром і хаосом.<br>
+        <strong>У міфології:</strong> добрий велет, що захищає подорожніх і полює на злих духів.
+      </div>
     </div>
 
     <h2>Повна історія</h2>
