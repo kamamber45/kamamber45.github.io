@@ -27,6 +27,11 @@
     }
     h3 {
       color: #ffd6f5;
+      transition: all 0.3s ease;
+    }
+    .character:hover h3 {
+      color: #ff5ebc;
+      text-shadow: 0 0 8px #ff5ebc, 0 0 15px #ff5ebc;
     }
     section {
       max-width: 900px;
@@ -34,6 +39,13 @@
     }
     .character {
       margin-bottom: 30px;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+    .character:hover {
+      background-color: rgba(255, 94, 188, 0.05);
+      box-shadow: 0 0 10px #ff5ebc66, 0 0 20px #ff5ebc33;
+      border-radius: 8px;
     }
     blockquote {
       font-style: italic;
