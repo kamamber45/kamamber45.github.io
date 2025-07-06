@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Українські митці — інтерактивна сцена</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hotspot {
+      position: absolute;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 2px solid #333;
+    }
+    .card {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #000;
+      max-width: 400px;
+      z-index: 10;
+      display: none;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <img src="/src/images/01.png" alt="Ілюстрація українських митців">
+
+  <!-- Гарячі точки -->
+  <div class="hotspot" style="top: 65%; left: 10%;" onclick="showCard('shevchenko')"></div>
+  <div class="hotspot" style="top: 75%; left: 30%;" onclick="showCard('primachenko')"></div>
+  <div class="hotspot" style="top: 55%; left: 20%;" onclick="showCard('lesya')"></div>
+  <div class="hotspot" style="top: 35%; left: 50%;" onclick="showCard('franko')"></div>
+  <div class="hotspot" style="top: 20%; left: 80%;" onclick="showCard('malewych')"></div>
+</div>
+
+<!-- Картка персонажа -->
+<div class="overlay" onclick="hideCard()"></div>
+<div class="card" id="card">
+  <h2 id="card-title"></h2>
+  <p id="card-content"></p>
+</div>
+
+<script>
+  const data = {
+    shevchenko: {
+      name: "Тарас Шевченко",
+      text: "1814–1861. Великий Кобзар, поет, художник, мислитель. Його твори стали основою української літератури."
+    },
+    primachenko: {
+      name: "Марія Примаченко",
+      text: "1909–1997. Народна художниця України. Відома своїми фантастичними звірами й казковими образами."
+    },
+    lesya: {
+      name: "Леся Українка",
+      text: "1871–1913. Поетеса, драматургиня, авторка 'Лісової пісні'. Боролася з хворобою і боролася за свободу думки."
+    },
+    franko: {
+      name: "Іван Франко",
+      text: "1856–1916. Письменник, публіцист, філософ. Автор 'Мойсея', перекладач, засновник модерної української літератури."
+    },
+    malewych: {
+      name: "Казимир Малевич",
+      text: "1879–1935. Український художник, творець супрематизму. Всесвітньо відомий завдяки 'Чорному квадрату'."
+    }
+  };
+
+  function showCard(key) {
+    document.getElementById('card-title').textContent = data[key].name;
+    document.getElementById('card-content').textContent = data[key].text;
+    document.querySelector('.card').style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block';
+  }
+
+  function hideCard() {
+    document.querySelector('.card').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
+  }
+</script>
+</body>
+</html>
