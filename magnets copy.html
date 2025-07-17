@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Колекція магнітів до Дня Незалежності України</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #fefcf9;
+      color: #333;
+    }
+    header, footer {
+      background: linear-gradient(to right, #f7e9ce, #e5d3b3);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #5a3e2b;
+    }
+    header p, footer p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto 0;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .magnet {
+      background: linear-gradient(135deg, #fffaf5, #fdf7ec);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .magnet:hover {
+      transform: scale(1.02);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+    }
+    .magnet img {
+      width: 100%;
+      display: block;
+    }
+    .magnet-description {
+      padding: 20px;
+    }
+    .magnet-description h2 {
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c4b2d;
+      margin: 0 0 10px;
+    }
+    .magnet-description p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .highlight {
+      background: #fcefdc;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-left: 6px solid #e4ab5f;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+    .magnet-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #f4dbc0;
+      color: #4a2d1f;
+      padding: 4px 8px;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .magnet-description h2 {
+        font-size: 1.2rem;
+      }
+      .magnet-description p {
+        font-size: 0.9rem;
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #1a1a1a;
+        color: #eee;
+      }
+      .magnet {
+        background: #2a2a2a;
+        border: 1px solid #444;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Магніти до Дня Незалежності України</h1>
+    <p>24 області + Крим в єдиній колекції. Орнаменти, що розповідають про наші корені.</p>
+  </header>
+  <div class="highlight">
+    Відчуйте унікальність кожного регіону через вишивку, символи та колір. Ці магніти — не просто декор, це — культурна мозаїка України.
+  </div>
+  <main class="container">
+        <div class="magnet">
+  <img src="/images/magnets/1.png" alt="Вінницька область">
+  <div class="magnet-description">
+    <h2>Вінницька область</h2>
+    <p>Поєднання багатьох технік вишивки: хрестик, розпис, мережка, низь. Кожна сорочка має домінуючий колір та обрамлення контурними швами.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/2.png" alt="Волинська область">
+  <div class="magnet-description">
+    <h2>Волинська область</h2>
+    <p>Геометричні візерунки з ламаних ліній і ромбів. Техніка занизування та вузька смужка на згині рукава — унікальна прикмета регіону.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/3.png" alt="Дніпропетровська область">
+  <div class="magnet-description">
+    <h2>Дніпропетровська область</h2>
+    <p>Візерунки у вигляді зірок і хрестів, поєднані з гілками та квітами. Використовується червоний, чорний і білий кольори.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/4.png" alt="Донецька область">
+  <div class="magnet-description">
+    <h2>Донецька область</h2>
+    <p>Символіка сили, охорони та степового коріння: геометрія, зірки, ромби й квіти у вишивці.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/5.png" alt="Житомирська область">
+  <div class="magnet-description">
+    <h2>Житомирська область</h2>
+    <p>Полісся: хрестики, ламані лінії, кульбаба, кіт — символи тепла та народної уяви.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/6.png" alt="Закарпатська область">
+  <div class="magnet-description">
+    <h2>Закарпатська область</h2>
+    <p>Пара кіз, ламані лінії, виноград і вузликове ткацтво — образ гірської витривалості й розмаїття.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/7.png" alt="Запорізька область">
+  <div class="magnet-description">
+    <h2>Запорізька область</h2>
+    <p>Кінь, розетки, ромби й лиштва — символи козаччини, степу та сонячної енергії.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/8.png" alt="Івано-Франківська область">
+  <div class="magnet-description">
+    <h2>Івано-Франківська область</h2>
+    <p>Карпатські баранці, зоряні мотиви, смуги — ритм гуцульської сили й міфології.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/9.png" alt="Київська область">
+  <div class="magnet-description">
+    <h2>Київська область</h2>
+    <p>Лелека, виноград, хміль, ромби з крапкою — символи захисту, дому й плодючості.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/10.png" alt="Кіровоградська область">
+  <div class="magnet-description">
+    <h2>Кіровоградська область</h2>
+    <p>Вазони, трипільська пташка-богиня, світове дерево — архаїка степового центру України.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/11.png" alt="Луганська область">
+  <div class="magnet-description">
+    <h2>Луганська область</h2>
+    <p>Рельєфна вишивка, качка, сонях і дерево-птах — родинний оберіг і світло.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/12.png" alt="Львівська область">
+  <div class="magnet-description">
+    <h2>Львівська область</h2>
+    <p>Лев, восьмипроменеві зірки, переплетені хрести — відгомін княжої доби й вишивка як оберіг.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/13.png" alt="Миколаївська область">
+  <div class="magnet-description">
+    <h2>Миколаївська область</h2>
+    <p>Сосонки, дубові листя, хміль, птахи — простір, межа, ритм символів Півдня.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/14.png" alt="Одеська область">
+  <div class="magnet-description">
+    <h2>Одеська область</h2>
+    <p>Чайка, хвилі, виноград, хвилясті хрести — морське натхнення й багатоголосся Одещини.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/15.png" alt="Полтавська область">
+  <div class="magnet-description">
+    <h2>Полтавська область</h2>
+    <p>Ромб, зірки, сосна, квіткові символи — барви родючості, спокою й життя.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/16.png" alt="Рівненська область">
+  <div class="magnet-description">
+    <h2>Рівненська область</h2>
+    <p>Дерево життя, квіткові розети, калина — щедрість і духовна вишивка Полісся.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/17.png" alt="Сумська область">
+  <div class="magnet-description">
+    <h2>Сумська область</h2>
+    <p>Птахи, восьмикутні зірки, насіння й сніжинки — символіка родючості та зимової краси.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/18.png" alt="Тернопільська область">
+  <div class="magnet-description">
+    <h2>Тернопільська область</h2>
+    <p>Зубчасті ромби, переплетення ниток, маки — ритмічна геометрія й дух Поділля.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/19.png" alt="Харківська область">
+  <div class="magnet-description">
+    <h2>Харківська область</h2>
+    <p>Динамічні зірки, ламані лінії, орнаментальні шеврони — символ сили та урбаністики.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/20.png" alt="Херсонська область">
+  <div class="magnet-description">
+    <h2>Херсонська область</h2>
+    <p>Ракушки, хвилі, дуби, сокіл — відлуння Таврії й охоронна вишивка.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/21.png" alt="Хмельницька область">
+  <div class="magnet-description">
+    <h2>Хмельницька область</h2>
+    <p>Гілки, виноград, ламані лінії — охоронні символи з Поділля.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/22.png" alt="Черкаська область">
+  <div class="magnet-description">
+    <h2>Черкаська область</h2>
+    <p>Хрести, дубове листя, вишиті хвилі — ритми лісостепу та захисту.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/23.png" alt="Чернівецька область">
+  <div class="magnet-description">
+    <h2>Чернівецька область</h2>
+    <p>Символи річок, трикутники, в’юнки — етнографія прикордоння та ніжні барви.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/24.png" alt="Чернігівська область">
+  <div class="magnet-description">
+    <h2>Чернігівська область</h2>
+    <p>Ромбічні хрести, гілки, сосни — знаки захисту північного краю.</p>
+  </div>
+</div>
+
+<div class="magnet">
+  <img src="/images/magnets/25.png" alt="Автономна Республіка Крим">
+  <div class="magnet-description">
+    <h2>Автономна Республіка Крим</h2>
+    <p>Квіткові орнаменти, егрі дал, тюльпани, гвоздики — символи кримських татар, динаміки й краси.</p><!-- Тут будуть вставлені карточки магнітів -->
+  </main>
+  <footer>
+    <p>Ця колекція — місток між поколіннями. Зберігайте, даруйте, колекціонуйте.</p>
+  </footer>
+</body>
+</html>
