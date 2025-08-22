@@ -43,9 +43,9 @@
     .card-btn{display:block;width:100%;text-align:left}
 
     /* Modal */
-    .overlay{position:fixed;inset:0;background:rgba(15,23,42,.42);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s ease}
+    .overlay{position:fixed;inset:0;background:rgba(15,23,42,.42);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:1000}
     .overlay.open{opacity:1;pointer-events:auto}
-    .modal{position:fixed;left:50%;top:clamp(8px, env(safe-area-inset-top) + 8px, 24px);bottom:clamp(8px, env(safe-area-inset-bottom) + 8px, 24px);transform:translateX(-50%) translateY(8px) scale(.98);width:min(720px,92vw);max-height:calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s;display:flex;flex-direction:column;overscroll-behavior:contain}
+    .modal{position:fixed;left:50%;top:clamp(8px, env(safe-area-inset-top) + 8px, 24px);bottom:clamp(8px, env(safe-area-inset-bottom) + 8px, 24px);transform:translateX(-50%) translateY(8px) scale(.98);width:min(720px,92vw);max-height:calc(100svh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s;display:flex;flex-direction:column;overscroll-behavior:contain;z-index:1001}
     .overlay.open .modal{transform:translateX(-50%) translateY(0) scale(1);opacity:1}
     .modal-header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:1}
     .modal-title{margin:0;font-size:18px;font-weight:800}
@@ -639,6 +639,7 @@ ________________________________________
 
   // ===== Modal logic =====
   const overlay = document.getElementById('overlay');
+  const modal = document.querySelector('.modal');
   const modalTitle = document.getElementById('modal-title');
   const modalBody = document.getElementById('modal-body');
   const btnClose = document.getElementById('close');
@@ -663,6 +664,12 @@ ________________________________________
   btnClose.addEventListener('click', closeModal);
   btnOk.addEventListener('click', closeModal);
   overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+  // Prevent background scroll on iOS/Android while allowing modal content to scroll
+  overlay.addEventListener('touchmove', (e)=>{
+    if(!modal.contains(e.target)){
+      e.preventDefault(); // block body scroll behind overlay
+    }
+  }, {passive:false});
   window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
 
   // ===== Reveal on scroll =====
